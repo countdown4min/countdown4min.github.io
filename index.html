@@ -18,6 +18,7 @@
 			font-family: Arial;
 			text-align: center;
 		}
+
 	</style>
 	<script>
 		var count = 1;
@@ -59,7 +60,16 @@
 			var sound = new Audio(soundFile);
 			sound.play();
 		}
-		window.onload = startCountdown;
+		window.onload = function() {
+			var startButton = document.createElement("button");
+			startButton.innerHTML = "Start";
+			startButton.className = "start-button";
+			startButton.onclick = function() {
+				startCountdown();
+				startButton.style.display = "none";
+			}
+			document.body.appendChild(startButton);
+		};
 	</script>
 </head>
 <body>
